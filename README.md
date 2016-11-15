@@ -20,11 +20,11 @@ index.html + index.js <--> ProductController (.NET 4.6.2 WebApi)
 
   * **api/product**?input=0
 
-  ==> GET KO (voluntary BusinessException)
+  ==> GET KO (intentional BoilerWebApi.BusinessException)
   
   * **api/product**{ 'Id': '1' }
 
-  ==> POST KO (unintentional DivideByZeroException)
+  ==> POST KO (unintentional System.DivideByZeroException)
 
 
 ## BoilerWebApi.Logic
