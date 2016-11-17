@@ -1,6 +1,10 @@
-# boilerwebapi Self Hosted (OWIN)
+# [boilerwebapi](https://github.com/ludojmj/boilerwebapi)
 
-index.html + index.js <--> ProductController (.NET 4.6.2 WebApi)
+Self Hosted .NET 4.6.2 WebApi (OWIN)
+
+Front-end : /BoilerWebApi.SelfHost/public/index.html + index.js
+
+Back-end : /BoilerWebApi.SelfHost/Controllers/ProductController.cs
 
 ***
 
