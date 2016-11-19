@@ -7,6 +7,7 @@ using Microsoft.Owin.Extensions;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
 using Owin;
+using Swashbuckle.Application;
 
 [assembly: OwinStartup(typeof(BoilerWebApi.SelfHost.Startup))]
 namespace BoilerWebApi.SelfHost
@@ -16,6 +17,11 @@ namespace BoilerWebApi.SelfHost
         public void Configuration(IAppBuilder app)
         {
             var httpConfiguration = new HttpConfiguration();
+
+            // Swagger
+            httpConfiguration
+                .EnableSwagger(c => c.SingleApiVersion("v1", "BoilerWebApi"))
+                .EnableSwaggerUi();
 
             // App Insights
             // TelemetryConfiguration.Active.DisableTelemetry = DisableTelemetry;
