@@ -49,9 +49,12 @@ namespace BoilerWebApi.SelfHost
             // Make ./public the default root of the static files in our Web Application.
             app.UseFileServer(new FileServerOptions
             {
-                RequestPath = new PathString(string.Empty),
-                FileSystem = new PhysicalFileSystem("./public"),
                 EnableDirectoryBrowsing = true,
+                EnableDefaultFiles = true,
+                DefaultFilesOptions = { DefaultFileNames = { "index.html" } },
+                FileSystem = new PhysicalFileSystem("public"),
+                RequestPath = new PathString(string.Empty),
+                StaticFileOptions = { ContentTypeProvider = new JsonContentTypeProvider() }
             });
 
             app.UseStageMarker(PipelineStage.MapHandler);
