@@ -27,7 +27,7 @@ namespace BoilerWebApi.SelfHost.Controllers
         [Route("api/product/async")]
         public async Task<IHttpActionResult> GetAsync(int input)
         {
-            IList<Product> result = await _repo.GetProductsFromRepoAsync(input);
+            IList<Product> result = await _repo.GetProductsFromRepoAsync(input).ConfigureAwait(false);
             return Ok(result);
         }
 
@@ -41,7 +41,7 @@ namespace BoilerWebApi.SelfHost.Controllers
         // Test <B>ug in application
         public async Task<IHttpActionResult> Post(Product input)
         {
-            IList<Product> result = await _repo2.GetProductsFromLogicAsync(input);
+            IList<Product> result = await _repo2.GetProductsFromLogicAsync(input).ConfigureAwait(false);
             return Ok(result);
         }
 

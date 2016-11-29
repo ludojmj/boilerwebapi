@@ -34,23 +34,5 @@ namespace BoilerWebApi.UnitTest
             Assert.IsNotNull(contentResult.Content);
             Assert.AreEqual(_firstValue, contentResult.Content[0].Id);
         }
-
-        //[TestMethod]
-        //public async Task GetListAsync_ShouldReturnAllProducts()
-        //{
-        //    // Arrange
-        //    _mockService = new Mock<IProductRepo>();
-        //    _mockService.Setup(x => x.GetProductsFromRepoAsync(It.IsAny<int>())).ReturnsAsync(_dataSource);
-        //    var controller = new ProductController(_mockService.Object);
-
-        //    // Act
-        //    IHttpActionResult actionResult = await controller.GetAsync(int.Parse(_firstValue));
-        //    var contentResult = actionResult as OkNegotiatedContentResult<IList<Product>>;
-
-        //    // Assert
-        //    Assert.IsNotNull(contentResult);
-        //    Assert.IsNotNull(contentResult.Content);
-        //    Assert.AreEqual(_firstValue, contentResult.Content);
-        //}
     }
 }

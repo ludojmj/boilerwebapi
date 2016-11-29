@@ -27,8 +27,8 @@ namespace BoilerWebApi.Logic
             int b = 10;
             var c = b / a;
 
-            await Task.Delay(2000);
-            return await _repo.GetProductsFromRepoAsync(int.Parse(input.Id));
+            await Task.Delay(2000).ConfigureAwait(false);
+            return await _repo.GetProductsFromRepoAsync(int.Parse(input.Id)).ConfigureAwait(false);
         }
     }
 }

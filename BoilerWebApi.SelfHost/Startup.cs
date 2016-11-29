@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
 using BoilerWebApi.Shared;
@@ -48,8 +49,8 @@ namespace BoilerWebApi.SelfHost
             );
 
             // Json only
-            //httpConfiguration.Formatters.Clear();
-            //httpConfiguration.Formatters.Add(new JsonMediaTypeFormatter());
+            httpConfiguration.Formatters.Clear();
+            httpConfiguration.Formatters.Add(new JsonMediaTypeFormatter());
 
             app.UseWebApi(httpConfiguration);
 
