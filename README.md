@@ -2,62 +2,64 @@
 
 Self Hosted .NET 4.6.2 WebApi (OWIN)
 
-Front-end : /BoilerWebApi.SelfHost/public/index.html + index.js
+* Front-end:
+  * /BoilerWebApi.SelfHost/public/index.html + index.js
 
-Back-end : /BoilerWebApi.SelfHost/Controllers/ProductController.cs
+* Back-end:
+  * /BoilerWebApi.SelfHost/Controllers/ProductController.cs
 
-***
+## Swagger
+* Launch the http server:
+  * boilerwebapi/BoilerWebApi.SelfHost/bin/**BoilerWebApi.SelfHost.exe**
 
-## BoilerWebApi.SelfHost/public
+* Open the url:
+  * http://localhost:8080/swagger
 
- - index.html
- - index.js
+## Layers
+
+#### BoilerWebApi.SelfHost/public
+
+* index.html
+* index.js
 
   
-## BoilerWebApi.SelfHost/Controllers
+#### BoilerWebApi.SelfHost/Controllers
  
- - ProductController
-
+* ProductController
   * **api/product/async**?input=1
-
-  ==> GET OK
+    > ==> GET OK
 
   * **api/product**?input=0
-
-  ==> GET KO (intentional BoilerWebApi.BusinessException)
+    > ==> GET KO (intentional BoilerWebApi.BusinessException)
   
   * **api/product**{ 'Id': '1' }
+    > ==> POST KO (unintentional System.DivideByZeroException)
 
-  ==> POST KO (unintentional System.DivideByZeroException)
 
-
-## BoilerWebApi.Logic
+#### BoilerWebApi.Logic
  
- - IProductLogic.cs
- - ProductLogic.cs
+* IProductLogic.cs
+* ProductLogic.cs
 
  
-## BoilerWebApi.Repository
+#### BoilerWebApi.Repository
  
- - IProductRepo.cs
- - ProductRepo.cs
+* IProductRepo.cs
+* ProductRepo.cs
 
 
-## BoilerWebApi.Models
+#### BoilerWebApi.Models
  
- - Product.cs
+* Product.cs
 
 
-## BoilerWebApi.Shared
+#### BoilerWebApi.Shared
  
- - BusinessException.cs
- 
-  ==> Voluntary BusinessException
+* BusinessException.cs
+  > ==> Voluntary BusinessException
 
- - ConflictActionResult.cs : IHttpActionResult
- 
-  ==> Exceptions into HttpActionResult
+* ConflictActionResult.cs : IHttpActionResult
+  >  ==> Exceptions into HttpActionResult
 
- - GlobalExceptionHandler.cs
- 
-  ==> Exceptions shielding
+* GlobalExceptionHandler.cs
+  >  ==> Exceptions shielding
