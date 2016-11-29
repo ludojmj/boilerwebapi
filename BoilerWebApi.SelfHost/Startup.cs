@@ -1,4 +1,6 @@
-﻿using System.Net.Http.Formatting;
+﻿using System;
+using System.Linq;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
 using BoilerWebApi.Shared;
@@ -17,12 +19,17 @@ namespace BoilerWebApi.SelfHost
         public void Configuration(IAppBuilder app)
         {
             var httpConfiguration = new HttpConfiguration();
-
+#if DEBUG
             // Swagger
             httpConfiguration
-                .EnableSwagger(c => c.SingleApiVersion("v1", "BoilerWebApi"))
+                .EnableSwagger(c =>
+                {
+                    c.SingleApiVersion("v1", "BoilerWebApi");
+                    c.RootUrl(req => new Uri(req.RequestUri, req.GetRequestContext().VirtualPathRoot).ToString());
+                    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                })
                 .EnableSwaggerUi();
-
+#endif
             // App Insights
             // TelemetryConfiguration.Active.DisableTelemetry = DisableTelemetry;
             // TelemetryConfiguration.Active.InstrumentationKey = InstrumentationKey;
@@ -41,8 +48,8 @@ namespace BoilerWebApi.SelfHost
             );
 
             // Json only
-            httpConfiguration.Formatters.Clear();
-            httpConfiguration.Formatters.Add(new JsonMediaTypeFormatter());
+            //httpConfiguration.Formatters.Clear();
+            //httpConfiguration.Formatters.Add(new JsonMediaTypeFormatter());
 
             app.UseWebApi(httpConfiguration);
 
@@ -52,7 +59,7 @@ namespace BoilerWebApi.SelfHost
                 EnableDirectoryBrowsing = true,
                 EnableDefaultFiles = true,
                 DefaultFilesOptions = { DefaultFileNames = { "index.html" } },
-                FileSystem = new PhysicalFileSystem("public"),
+                FileSystem = new PhysicalFileSystem("./public"),
                 RequestPath = new PathString(string.Empty),
                 StaticFileOptions = { ContentTypeProvider = new JsonContentTypeProvider() }
             });

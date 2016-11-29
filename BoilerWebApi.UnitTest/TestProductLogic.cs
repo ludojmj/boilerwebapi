@@ -52,9 +52,6 @@ namespace BoilerWebApi.UnitTest
             // act
             var input = new Product { Id = "1" };
             var result = await service.GetProductsFromLogicAsync(input);
-
-            // assert
-            // Assert.AreEqual(result, _dataSource);
         }
     }
 }
