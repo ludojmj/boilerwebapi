@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin.Hosting;
 using System;
 
-namespace BoilerWebApi.SelfHost
+namespace BoilerWebApi
 {
     internal static class Program
     {

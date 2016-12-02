@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoilerWebApi.Repository", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoilerWebApi.Logic", "BoilerWebApi.Logic\BoilerWebApi.Logic.csproj", "{3062A2F9-3986-4549-81B6-C7B8E2B70076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoilerWebApi.SelfHost", "BoilerWebApi.SelfHost\BoilerWebApi.SelfHost.csproj", "{E280D70F-95C1-4DE4-98C9-92416C281E75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoilerWebApi", "BoilerWebApi\BoilerWebApi.csproj", "{E280D70F-95C1-4DE4-98C9-92416C281E75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoilerWebApi.UnitTest", "BoilerWebApi.UnitTest\BoilerWebApi.UnitTest.csproj", "{CFF5AEBF-A899-4DDF-93C3-98D9FB1B4639}"
 EndProject

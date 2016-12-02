@@ -99,7 +99,7 @@
       <Project>{DCE55ED3-B8C3-40AC-BFCF-83052F7A2A41}</Project>
       <Name>BoilerWebApi.Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BoilerWebApi.SelfHost\BoilerWebApi.SelfHost.csproj">
+    <ProjectReference Include="..\BoilerWebApi\BoilerWebApi.csproj">
       <Project>{e280d70f-95c1-4de4-98c9-92416c281e75}</Project>
       <Name>BoilerWebApi.SelfHost</Name>
     </ProjectReference>

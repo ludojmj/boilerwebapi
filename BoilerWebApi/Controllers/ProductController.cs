@@ -5,7 +5,7 @@ using BoilerWebApi.Logic;
 using BoilerWebApi.Models;
 using BoilerWebApi.Repository;
 
-namespace BoilerWebApi.SelfHost.Controllers
+namespace BoilerWebApi.Controllers
 {
     public class ProductController : ApiController
     {

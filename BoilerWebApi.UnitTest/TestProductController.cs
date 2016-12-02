@@ -4,7 +4,7 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using BoilerWebApi.Models;
 using BoilerWebApi.Repository;
-using BoilerWebApi.SelfHost.Controllers;
+using BoilerWebApi.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

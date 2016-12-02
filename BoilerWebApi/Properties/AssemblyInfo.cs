@@ -1,10 +1,10 @@
 ﻿using System.Reflection;
 
-[assembly: AssemblyTitle("BoilerWebApi.SelfHost")]
+[assembly: AssemblyTitle("BoilerWebApi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ludojmj")]
-[assembly: AssemblyProduct("BoilerWebApi.SelfHost")]
+[assembly: AssemblyProduct("BoilerWebApi")]
 [assembly: AssemblyCopyright("Copyright © ludojmj 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
