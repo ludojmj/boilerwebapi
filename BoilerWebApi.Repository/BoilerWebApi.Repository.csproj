@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDb.cs" />
+    <Compile Include="IOtherProductRepo.cs" />
+    <Compile Include="OtherProductRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IProductRepo.cs" />
     <Compile Include="ProductRepo.cs" />

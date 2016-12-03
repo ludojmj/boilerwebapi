@@ -124,6 +124,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="public\index.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="public\index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -135,6 +138,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\OtherProductController.cs" />
     <Compile Include="JsonContentTypeProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,10 +146,6 @@
     <Compile Include="Controllers\ProductController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BoilerWebApi.Logic\BoilerWebApi.Logic.csproj">
-      <Project>{3062a2f9-3986-4549-81b6-c7b8e2b70076}</Project>
-      <Name>BoilerWebApi.Logic</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BoilerWebApi.Models\BoilerWebApi.Models.csproj">
       <Project>{3BFABECC-BE48-4955-8650-2318D97119EB}</Project>
       <Name>BoilerWebApi.Models</Name>

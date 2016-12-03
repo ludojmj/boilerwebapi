@@ -21,7 +21,7 @@
     });
 }
 
-function callPost(obj) {
+function callPost(obj, hasBug) {
     var results = document.getElementById("results");
     obj.addEventListener("click", function (e) {
         var oReq = new XMLHttpRequest();
@@ -40,16 +40,30 @@ function callPost(obj) {
         oReq.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
         oReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         oReq.setRequestHeader("x-vanillaAjaxWithoutjQuery-version", "1.0");
-        oReq.send("{'Id': '1'}");
+        oReq.send(hasBug ? "{'Id': '1'}" : "{'Id': '0'}");
     });
 }
 
 (function () {
-    var retrieveOk = document.getElementById("retrieveOk");
-    var retrieveKo = document.getElementById("retrieveKo");
-    var retrieveBug = document.getElementById("retrieveBug");
+    // GET
+    var productKo = document.getElementById("productKo");
+    var productOk = document.getElementById("productOk");
+    var productAsyncKo = document.getElementById("productAsyncKo");
+    var productAsyncOk = document.getElementById("productAsyncOk");
 
-    callGet(retrieveOk);
-    callGet(retrieveKo);
-    callPost(retrieveBug);
+    callGet(productKo);
+    callGet(productOk);
+    callGet(productAsyncKo);
+    callGet(productAsyncOk);
+
+    // POST
+    var otherProductKo = document.getElementById("otherProductKo");
+    var otherProductOk = document.getElementById("otherProductOk");
+    var otherProductAsyncKo = document.getElementById("otherProductAsyncKo");
+    var otherProductAsyncOk = document.getElementById("otherProductAsyncOk");
+
+    callPost(otherProductKo, true);
+    callPost(otherProductOk, false);
+    callPost(otherProductAsyncKo, true);
+    callPost(otherProductAsyncOk, false);
 }());

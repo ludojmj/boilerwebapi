@@ -6,7 +6,7 @@ namespace BoilerWebApi.Repository
 {
     public interface IProductRepo
     {
-        IList<Product> GetProductsFromRepo(int input);
-        Task<IList<Product>> GetProductsFromRepoAsync(int input);
+        IList<Product> GetProductsFromRepo(int id);
+        Task<IList<Product>> GetProductsFromRepoAsync(int id);
     }
 }

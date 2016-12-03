@@ -9,6 +9,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Extensions;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
+using Microsoft.Owin.StaticFiles.ContentTypes;
 using Owin;
 using Swashbuckle.Application;
 
@@ -54,6 +55,10 @@ namespace BoilerWebApi
 
             app.UseWebApi(httpConfiguration);
 
+            // Add Json mapping
+            var provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".json"] = "application/json";
+
             // Make ./public the default root of the static files in our Web Application.
             app.UseFileServer(new FileServerOptions
             {
@@ -62,7 +67,7 @@ namespace BoilerWebApi
                 DefaultFilesOptions = { DefaultFileNames = { "index.html" } },
                 FileSystem = new PhysicalFileSystem("./public"),
                 RequestPath = new PathString(string.Empty),
-                StaticFileOptions = { ContentTypeProvider = new JsonContentTypeProvider() }
+                StaticFileOptions = { ContentTypeProvider = provider }
             });
 
             app.UseStageMarker(PipelineStage.MapHandler);

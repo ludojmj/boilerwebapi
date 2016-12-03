@@ -73,20 +73,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestProductController.cs" />
+    <Compile Include="TestProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestProductLogic.cs" />
-    <Compile Include="TestProductRepo.cs" />
+    <Compile Include="TestOtherProduct.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BoilerWebApi.Logic\BoilerWebApi.Logic.csproj">
-      <Project>{3062A2F9-3986-4549-81B6-C7B8E2B70076}</Project>
-      <Name>BoilerWebApi.Logic</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BoilerWebApi.Models\BoilerWebApi.Models.csproj">
       <Project>{3BFABECC-BE48-4955-8650-2318D97119EB}</Project>
       <Name>BoilerWebApi.Models</Name>
