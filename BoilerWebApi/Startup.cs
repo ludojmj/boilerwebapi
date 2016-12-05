@@ -57,7 +57,7 @@ namespace BoilerWebApi
 
             // Add Json mapping
             var provider = new FileExtensionContentTypeProvider();
-            provider.Mappings[".json"] = "application/json";
+            provider.Mappings[".json"] = JsonMediaTypeFormatter.DefaultMediaType.MediaType;
 
             // Make ./public the default root of the static files in our Web Application.
             app.UseFileServer(new FileServerOptions

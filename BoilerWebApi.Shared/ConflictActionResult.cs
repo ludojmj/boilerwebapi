@@ -24,7 +24,9 @@ namespace BoilerWebApi.Shared
                 {
                     Message = "An error occured.",
                     MessageDetail = _message
-                }, new JsonMediaTypeFormatter(), JsonMediaTypeFormatter.DefaultMediaType.MediaType),
+                },
+                new JsonMediaTypeFormatter(),
+                JsonMediaTypeFormatter.DefaultMediaType.MediaType)
             };
             return Task.FromResult(response);
         }
