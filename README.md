@@ -73,11 +73,14 @@ Self Hosted .NET 4.6.2 WebApi (OWIN)
 
 #### BoilerWebApi.Shared
  
-* BusinessException.cs
+* ErrorContent.cs
+  > ==> Formatted message object { Message, MessageDetail }
+
+* BusinessException.cs : Exception
   > ==> Voluntary BusinessException
 
 * ConflictActionResult.cs : IHttpActionResult
   >  ==> Exceptions into HttpActionResult
 
-* GlobalExceptionHandler.cs
+* GlobalExceptionHandler.cs : ExceptionHandler
   >  ==> Exceptions shielding
