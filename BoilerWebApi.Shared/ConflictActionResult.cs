@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -14,13 +15,16 @@ namespace BoilerWebApi.Shared
         {
             _message = message;
         }
-
+        
         public Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
         {
             var response = new HttpResponseMessage(HttpStatusCode.Conflict)
             {
-                Content = new StringContent(_message),
-                ReasonPhrase = _message
+                Content = new ObjectContent<ErrorContent>(new ErrorContent
+                {
+                    Message = "An error occured.",
+                    MessageDetail = _message
+                }, new JsonMediaTypeFormatter(), JsonMediaTypeFormatter.DefaultMediaType.MediaType),
             };
             return Task.FromResult(response);
         }

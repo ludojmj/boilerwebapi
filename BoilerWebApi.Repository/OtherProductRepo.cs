@@ -27,7 +27,6 @@ namespace BoilerWebApi.Repository
 
         public async Task<IList<Product>> GetOtherProductsFromRepoAsync(Product input)
         {
-            await Task.Delay(2000).ConfigureAwait(false);
             var result = await Task.FromResult(GetOtherProductsFromRepo(input)).ConfigureAwait(false);
             return result;
         }
