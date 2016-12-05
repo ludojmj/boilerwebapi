@@ -3,49 +3,67 @@
 Self Hosted .NET 4.6.2 WebApi (OWIN)
 
 * Front-end:
-  * /BoilerWebApi.SelfHost/public/index.html + index.js
+  * /BoilerWebApi/public/index.html + index.js + index.css
 
 * Back-end:
-  * /BoilerWebApi.SelfHost/Controllers/ProductController.cs
+  * /BoilerWebApi/Controllers/ProductController.cs
+  * /BoilerWebApi/Controllers/OtherProductController.cs
 
 ## Swagger
 * Launch the http server:
-  * boilerwebapi/BoilerWebApi.SelfHost/bin/**BoilerWebApi.SelfHost.exe**
+  * boilerwebapi/BoilerWebApi/bin/**BoilerWebApi.exe**
 
 * Open the url:
   * http://localhost:8080/swagger
 
 ## Layers
 
-#### BoilerWebApi.SelfHost/public
+#### BoilerWebApi/public
 
 * index.html
 * index.js
+* index.css
 
   
-#### BoilerWebApi.SelfHost/Controllers
+#### BoilerWebApi/Controllers
  
-* ProductController
-  * **api/product/async**?input=1
-    > ==> GET OK
-
-  * **api/product**?input=0
-    > ==> GET KO (intentional BoilerWebApi.BusinessException)
+* ProductController id=1 => KO
+  * **api/product**?id=1
+    >  ==> GET KO (intentional BoilerWebApi.BusinessException)
   
-  * **api/product**{ 'Id': '1' }
-    > ==> POST KO (unintentional System.DivideByZeroException)
+  * **api/product/async**?id=1
+    >  ==> GET KO (intentional BoilerWebApi.BusinessException)
+
+* ProductController id=0 => OK
+  * **api/product**?id=0
+    >  ==> GET OK
+  
+  * **api/product/async**?id=0
+    >  ==> GET OK
 
 
-#### BoilerWebApi.Logic
- 
-* IProductLogic.cs
-* ProductLogic.cs
+* OtherProductController input.Id="1" => KO
+  * **api/otherproduct** { Id = "1", Lib = "Label1" }
+    >  ==> POSTT KO (unintentional System.DivideByZeroException)
+  
+  * **api/product/async**  { Id = "1", Lib = "Label1" }
+    >  ==> POST KO (unintentional System.DivideByZeroException)
+
+* OtherProductController input.Id="0" => OK
+  * **api/product**  { Id = "0", Lib = "Label1" }
+    >  ==> POST OK
+  
+  * **api/product/async**  { Id = "0", Lib = "Label1" }
+    >  ==> POST OK
 
  
 #### BoilerWebApi.Repository
  
 * IProductRepo.cs
+* IOtherProductRepo.cs
+
 * ProductRepo.cs
+* OtherProductRepo.cs
 
 
 #### BoilerWebApi.Models
