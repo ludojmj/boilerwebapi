@@ -11,15 +11,21 @@ using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
 using Microsoft.Owin.StaticFiles.ContentTypes;
 using Owin;
+#if DEBUG
 using Swashbuckle.Application;
+#endif
 
 [assembly: OwinStartup(typeof(BoilerWebApi.Startup))]
 namespace BoilerWebApi
 {
+    /// <summary>
+    /// Web API configuration and services.
+    /// </summary>
     public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
+            
             var httpConfiguration = new HttpConfiguration();
 #if DEBUG
             // Swagger
@@ -32,13 +38,18 @@ namespace BoilerWebApi
                 })
                 .EnableSwaggerUi();
 #endif
-            // App Insights
-            // TelemetryConfiguration.Active.DisableTelemetry = DisableTelemetry;
-            // TelemetryConfiguration.Active.InstrumentationKey = InstrumentationKey;
+            // Configure Log4Net
+            log4net.Config.XmlConfigurator.Configure();
 
             // Exceptions handling
             httpConfiguration.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
-            
+
+            // Exceptions logging
+            httpConfiguration.Services.Replace(typeof(IExceptionLogger), new GlobalExceptionLogger());
+            // Requests/Responses tracing
+            httpConfiguration.MessageHandlers.Add(new GlobalTraceHandler());
+
+
             // Configure Web API Routes:
             // - Enable Attribute Mapping
             // - Enable Default routes at /api.

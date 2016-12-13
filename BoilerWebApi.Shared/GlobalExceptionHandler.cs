@@ -4,14 +4,13 @@ using System.Text.RegularExpressions;
 using System.Web.Configuration;
 using System.Web.Http.ExceptionHandling;
 
-// using Microsoft.ApplicationInsights;
-
 namespace BoilerWebApi.Shared
 {
+    /// <summary>
+    /// Intercept exceptions so as to avoid us to try catch everywhere.
+    /// </summary>
     public class GlobalExceptionHandler : ExceptionHandler
     {
-        // private readonly TelemetryClient _telemetry = new TelemetryClient();
-
         public override void Handle(ExceptionHandlerContext context)
         {
             var aggregateException = context.Exception as AggregateException;
@@ -30,19 +29,14 @@ namespace BoilerWebApi.Shared
             var compilationSection = ConfigurationManager.GetSection(@"system.web/compilation") as CompilationSection;
             if (compilationSection != null && !compilationSection.Debug)
             {
-                // Fake message if Release.
+                // Fake message if Release (we won't show the real exception message to the user).
                 msg = "An error occured. Please try again later";
             }
 
             var businessException = context.Exception as BusinessException;
-            if (businessException == null || businessException.Message.Contains("BusinessException"))
+            if (businessException != null)
             {
-                // We won't show the real exception to the user but we're going to keep a trace.
-                // _telemetry.TrackException(context.Exception);
-            }
-            else
-            {
-                // Don't need to trace managed errors.
+                // BusinessException = Managed exception (we can show the exception message to the user).
                 msg = businessException.Message;
             }
             msg = Regex.Replace(msg, @"\s+", " ").Replace("\r", " ").Replace("\n", "").Replace("\"", "");
