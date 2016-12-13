@@ -1,6 +1,11 @@
 # [boilerwebapi](https://github.com/ludojmj/boilerwebapi)
+## .NET 4.6.2 WebApi (OWIN)
 
-Self Hosted .NET 4.6.2 WebApi (OWIN)
+```
+$ git clone https://github.com/ludojmj/boilerwebapi.git
+  - Self Hosted: BoilerWebApi project > Properties > Output type > Console Application
+  - IIS Hosted : BoilerWebApi project > Properties > Output type > Class Library
+```
 
 * Front-end:
   * /BoilerWebApi/public/index.html + index.js + index.css
