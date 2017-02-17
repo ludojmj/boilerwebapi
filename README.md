@@ -16,7 +16,7 @@ $ git clone https://github.com/ludojmj/boilerwebapi.git
 
 ## Swagger
 * Launch the http server:
-  * boilerwebapi/BoilerWebApi/bin/**BoilerWebApi.exe**
+  * /BoilerWebApi/bin/**BoilerWebApi.exe**
 
 * Open the url:
   * http://localhost:8080/swagger
@@ -88,4 +88,4 @@ $ git clone https://github.com/ludojmj/boilerwebapi.git
   >  ==> Exceptions into HttpActionResult
 
 * GlobalExceptionHandler.cs : ExceptionHandler
-  >  ==> Exceptions shielding
+  >  ==> Exception shielding
