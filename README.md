@@ -89,3 +89,6 @@ $ git clone https://github.com/ludojmj/boilerwebapi.git
 
 * GlobalExceptionHandler.cs : ExceptionHandler
   >  ==> Exception shielding
+
+* GlobalExceptionLogger.cs : ExceptionLogger
+  >  ==> Logging
