@@ -66,7 +66,7 @@ namespace BoilerWebApi.UnitTest
         public void GetProductsFromRepo_ShouldReturnBusinessException()
         {
             IProductRepo test = new ProductRepo();
-            IList<Product> result = test.GetProductsFromRepo(_errorValue);
+            test.GetProductsFromRepo(_errorValue);
         }
     }
 }

@@ -67,7 +67,7 @@ namespace BoilerWebApi.UnitTest
         public void GetOtherProductsFromRepo_ShouldReturnDivideByZeroException()
         {
             IOtherProductRepo test = new OtherProductRepo();
-            IList<Product> result = test.GetOtherProductsFromRepo(_errorValue);
+            test.GetOtherProductsFromRepo(_errorValue);
         }
     }
 }

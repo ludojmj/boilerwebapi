@@ -1,5 +1,5 @@
 # [boilerwebapi](https://github.com/ludojmj/boilerwebapi)
-## .NET 4.6.2 WebApi (OWIN)
+## .NET 4.7.2 WebApi (OWIN)
 
 ```
 $ git clone https://github.com/ludojmj/boilerwebapi.git
